@@ -56,8 +56,6 @@ async function run() {
 
     app.post('/brandItems', async (req, res) =>{
       const carInfo = req.body
-      // console.log(carInfo)
-
       const result = await brandItemCollection.insertOne(carInfo);
       res.send(result)
     })
@@ -66,7 +64,6 @@ async function run() {
     app.put('/brandItems/:id', async (req, res) =>{
       const id = req.params.id;
       const newInfo = req.body;
-      // console.log(newInfo.brand)
       const filter = {_id: new ObjectId(id)}
       const option = {upsert: true}
       const updateInfo = {
